@@ -315,7 +315,7 @@ def showAlbums(artist_id):
     artist = session.query(Artist).filter_by(id = artist_id).one()
     creator = getUserInfo(artist.user_id)
     albums = session.query(Album).filter_by(artist_id = artist_id).all()
-    # Sort the list of albums by release year
+    # Camacho - Sort the list of albums by release year
     albums.sort(key=lambda x:x.year, reverse=False)
     if 'username' not in login_session or creator.id != login_session['user_id']:
         return render_template('publicalbums.html',albums=albums,artist=artist,creator=creator)
