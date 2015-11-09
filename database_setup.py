@@ -5,11 +5,21 @@ from sqlalchemy import create_engine
  
 Base = declarative_base()
 
-class Restaurant(Base):
-    __tablename__ = 'restaurant'
+class User(Base):
+    __tablename__ = 'user'
+
+    name = Column(String(250), nullable=False)
+    email = Column(String(250), nullable=False)
+    picture = Column(String(250))
+    id = Column(Integer, primary_key=True)
+
+class Artist(Base):
+    __tablename__ = 'artist'
    
     id = Column(Integer, primary_key=True)
-    name = Column(String(250), nullable=False)
+    name = Column(String(100), nullable=False)
+    user_id = Column(Integer,ForeignKey('user.id'))
+    user = relationship(User)
 
     @property
     def serialize(self):
@@ -19,17 +29,20 @@ class Restaurant(Base):
            'id'           : self.id,
        }
  
-class MenuItem(Base):
-    __tablename__ = 'menu_item'
+class Album(Base):
+    __tablename__ = 'album'
 
 
-    name =Column(String(80), nullable = False)
+    name = Column(String(100), nullable = False)
     id = Column(Integer, primary_key = True)
     description = Column(String(250))
-    price = Column(String(8))
-    course = Column(String(250))
-    restaurant_id = Column(Integer,ForeignKey('restaurant.id'))
-    restaurant = relationship(Restaurant)
+    year = Column(String(4))
+    numtracks = Column(String(2))
+    cover = Column(String(250))
+    artist_id = Column(Integer,ForeignKey('artist.id'))
+    artist = relationship(Artist)
+    user_id = Column(Integer,ForeignKey('user.id'))
+    user = relationship(User)
 
 
     @property
@@ -39,13 +52,14 @@ class MenuItem(Base):
            'name'         : self.name,
            'description'         : self.description,
            'id'         : self.id,
-           'price'         : self.price,
-           'course'         : self.course,
+           'year'         : self.year,
+           'numtracks'         : self.numtracks,
+           'cover'          : self.cover,
        }
 
 
 
-engine = create_engine('sqlite:///restaurantmenu.db')
+engine = create_engine('sqlite:///musicsite.db')
  
 
 Base.metadata.create_all(engine)

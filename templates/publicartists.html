@@ -1,52 +1,44 @@
 {% extends "main.html" %}
 {% block content %}
-{% include "header.html" %}
 	<div class="row top-menu">
 		<div class="col-md-10"></div>
 		<div class="col-md-2 text-right">
-					</div>
-	</div>
-	<div class="row divider blue">
-		<div class="col-md-12"></div>
+			<a href="{{url_for('showLogin')}}">Click Here to Log in </a>
+		</div>
 	</div>
 	<div class="row banner main">
 		<div class="col-md-1"></div>
-		<div class="col-md-11 padding-none">
-			<h1>Restaurants</h1>
-		</div>
+		<h1 style="text-align: center">Artists</h1>
 	</div>
 
-<div class = 'flash'>
+
 		      {% with messages = get_flashed_messages() %}
       {% if messages %}
-          
+      <div class = 'flash'>
         <ul>
         {% for message in messages %}
             <li> <strong> {{ message }} </strong> </li>
         {% endfor %}
         </ul>
         {% endif %}
+      </div>
     {% endwith %}
 
-</div>
+
 	
 	<div class="row padding-top padding-bottom">
 		<div class="col-md-1"></div>
 		<div class="col-md-10 padding-none">
-			<a href="{{url_for('newRestaurant')}}">
-				<button class="btn btn-default" id="new-restaurant">
-					<span class="glyphicon glyphicon-cutlery" aria-hidden="true"></span>Add Restaurant
-				</button>
-			</a>
+			
 		</div>
 		<div class="col-md-1"></div>
 	</div>
-	{% for restaurant in restaurants %}
-		<a href = "{{url_for('showMenu', restaurant_id = restaurant.id)}}">
+	{% for artist in artists %}
+		<a href = "{{url_for('showAlbums', artist_id = artist.id)}}">
 			<div class="row">
 				<div class="col-md-1"></div>
-					<div class="col-md-10 restaurant-list">
-						<h3>{{restaurant.name}}</h3>
+					<div class="col-md-10 artist-list">
+						<h2 style="color: black">{{artist.name}}</h2>
 					</div>
 				<div class="col-md-1"></div>
 			</div>

@@ -1,10 +1,10 @@
 * {
-	font-family: "Helvetica Neue Bold", Roboto, Helvetica, Arial, sans-serif;
+	font-family: "Verdana", Tahoma, sans-serif;
 	font-weight: 700;
 }
 
 h1 {
-	font-family: "Helvetica Neue Light", Roboto, Helvetica, Arial, sans-serif;
+	font-family: "Verdana", Tahoma, sans-serif;
 	font-size: 50px;
 	color: #51453B;
 	line-height: 60px;
@@ -23,7 +23,7 @@ h3 {
 	line-height: 23px;
 }
  p {
- 	font-family: "Helvetica Neue", Roboto, Helvetica, Arial, sans-serif;
+ 	font-family: "Verdana", Tahoma, sans-serif;
  	font-size: 16px;
  	color: #7B7573;
  	line-height: 24px;
@@ -56,12 +56,13 @@ h3 {
 .btn {
 	padding: 20px;
 	margin: 0;
-	border-color: #9FB80A;
+	border-color: blue;
 	border-width: 2px;
-	color: #9FB80A;;
+	color: black;;
 }
 .btn:hover {
-	border-color: #9FB80A;
+	border-color: blue;
+    background-color: rgba(127, 171, 225, 0.47);
 }
 .btn.delete {
 	border-color: #aaaaaa;
@@ -100,14 +101,13 @@ h3 {
 }
 .banner.main {
 	height: 150px;
-	background: url("/static/top-banner.jpg");
 	background-position: right;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 .banner.menu {
 	height: 150px;
-	background-color: #E1E17F;
+	background-color: rgba(79, 134, 217, 0.17);
 }
 .banner.profile {
 	height: 150px;
@@ -116,21 +116,22 @@ h3 {
 .banner h1 {
 	margin: 45px 0;
 }
- .restaurant-list {
+ .artist-list {
  	background-color: #F0F0F0;
  	padding: 20px;
 u }
- .restaurant-list:hover {
- 	background-color: #e1e17f;
+
+ .artist-list:hover {
+ 	background-color: rgba(127, 171, 225, 0.47);
  	padding: 20px;
 }
-.menu-item {
+.album {
 	background: #F0F0F0;
 	padding: 20px;
 	margin: 20px;
 	margin-left: -20px;
 }
-.menu-price {
+.album-year {
 	font-weight: 700;
 }
 .creator {
@@ -150,7 +151,10 @@ u }
 	margin-top: -20px;
 }
 .flash {
-	background-color: #98FB98;
+	border-color: #98FB98;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 2px;
 	width:100%;
 	text-decoration: none;
 
@@ -160,4 +164,8 @@ u }
 	list-style-type: none;
 	text-align: center;
 
+}
+
+.col-md-10 {
+    text-align: center;
 }
